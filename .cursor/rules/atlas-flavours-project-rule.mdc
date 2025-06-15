@@ -1,0 +1,155 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Atlas Flavours Restaurant Project Guide
+
+## Project Overview
+Atlas Flavours is a modern Moroccan restaurant website based in Sweden, featuring a full-stack architecture with Django backend and React frontend.
+
+## Architecture
+- **Backend**: Django + Django REST Framework + PostgreSQL + Cloudinary
+- **Frontend**: React + TypeScript + Tailwind CSS + Shadcn UI
+- **Internationalization**: Swedish, English, French, Arabic (i18n)
+- **Deployment**: Configured for Render deployment
+
+## Project Structure
+
+### Root Directory
+```
+AtlasFlavours/
+├── backend/          # Django backend application
+├── frontend/         # React frontend application
+├── venv/            # Python virtual environment
+├── requirements.txt # Python dependencies
+└── README.md        # Project documentation
+```
+
+### Backend Structure
+The Django backend is located in the `backend/` directory:
+
+- **Main Configuration**: [backend/backend/settings.py](mdc:backend/backend/settings.py) - Contains all Django settings including database, Cloudinary, CORS, and i18n configuration
+- **URL Configuration**: [backend/backend/urls.py](mdc:backend/backend/urls.py) - Main URL routing
+- **Apps Structure**: Each feature is organized as a Django app:
+  - `restaurant/` - Restaurant information and story
+  - `menu/` - Menu items and categories
+  - `gallery/` - Photo gallery management
+  - `testimonials/` - Customer reviews and feedback
+  - `team/` - Team member profiles
+  - `contact/` - Contact forms and information
+
+### Frontend Structure
+The React frontend is located in the `frontend/` directory:
+
+- **Main Configuration**: [frontend/vite.config.ts](mdc:frontend/vite.config.ts) - Vite build configuration
+- **Styling**: [frontend/tailwind.config.js](mdc:frontend/tailwind.config.js) - Tailwind CSS with Atlas Flavours brand colors
+- **Global Styles**: [frontend/src/index.css](mdc:frontend/src/index.css) - Tailwind imports and custom styles
+- **TypeScript Config**: [frontend/tsconfig.json](mdc:frontend/tsconfig.json) - TypeScript configuration
+
+## Key Technologies
+
+### Backend Technologies
+- **Django 5.2+**: Web framework
+- **Django REST Framework**: API development
+- **PostgreSQL**: Database (via psycopg2-binary)
+- **Cloudinary**: Media storage and optimization
+- **django-cors-headers**: CORS handling for React frontend
+- **django-rosetta**: Translation management
+- **djangorestframework-simplejwt**: JWT authentication
+
+### Frontend Technologies
+- **React 18+**: UI library with TypeScript
+- **Vite**: Build tool and dev server
+- **Tailwind CSS**: Utility-first CSS framework
+- **Radix UI**: Accessible component primitives
+- **React Router**: Client-side routing
+- **react-i18next**: Internationalization
+- **Lucide React**: Icon library
+
+## Development Workflow
+
+### Backend Development
+1. **Activate virtual environment**: `venv\Scripts\Activate.ps1` (Windows)
+2. **Navigate to backend**: `cd backend`
+3. **Run migrations**: `python manage.py migrate`
+4. **Start development server**: `python manage.py runserver`
+5. **Create superuser**: `python manage.py createsuperuser`
+
+### Frontend Development
+1. **Navigate to frontend**: `cd frontend`
+2. **Install dependencies**: `npm install`
+3. **Start development server**: `npm run dev`
+4. **Build for production**: `npm run build`
+
+## Color Palette & Design System
+
+The project uses a Moroccan-inspired color palette based on the Atlas Flavours logo:
+
+- **Primary Colors**: Blue gradient (#e6f7ff to #002766)
+- **Secondary Colors**: Orange gradient (#fff7e6 to #612500)
+- **Accent Colors**: Green gradient (#f6ffed to #092b00)
+- **Moroccan Colors**: Gold (#D4AF37), Emerald (#50C878), Terracotta (#E2725B)
+
+## Multi-language Support
+
+The application supports 4 languages:
+- **Swedish (sv)**: Primary language for Swedish market
+- **English (en)**: International users
+- **French (fr)**: Francophone users
+- **Arabic (ar)**: Moroccan heritage, includes RTL support
+
+## Database Schema
+
+Key models include:
+- **Restaurant**: Basic restaurant information
+- **MenuItem**: Menu items with categories and pricing
+- **GalleryImage**: Photo gallery with Cloudinary integration
+- **Testimonial**: Customer reviews with approval system
+- **TeamMember**: Staff profiles
+- **ContactMessage**: Contact form submissions
+
+## API Endpoints
+
+RESTful API endpoints following the pattern:
+- `/api/v1/menu/` - Menu items
+- `/api/v1/gallery/` - Gallery images
+- `/api/v1/testimonials/` - Customer testimonials
+- `/api/v1/team/` - Team members
+- `/api/v1/contact/` - Contact messages
+
+## Environment Configuration
+
+Environment variables are managed through:
+- **Development**: Local `.env` file
+- **Production**: Render environment variables
+- **Key variables**: Database URL, Cloudinary credentials, secret keys
+
+## Page Structure
+
+### Main Website Pages
+- **Homepage**: Hero, story preview, menu preview, testimonials
+- **About Us**: Full restaurant story and history
+- **Menu**: Complete menu with categories and filtering
+- **Gallery**: Photo gallery with Cloudinary optimization
+- **Team**: Staff profiles and bios
+- **Find Us**: Location, contact information, hours
+- **Testimonials**: Customer reviews and review submission
+
+### Dashboard Pages
+- **Menu Management**: Add/edit menu items
+- **Gallery Management**: Upload/organize photos
+- **Team Management**: Staff profile management
+- **Testimonial Moderation**: Approve/reject reviews
+- **Restaurant Info**: Update contact details and story
+
+## Best Practices
+
+1. **Component Organization**: Use functional components with TypeScript
+2. **State Management**: Use React hooks for local state
+3. **API Integration**: Centralized API service functions
+4. **Responsive Design**: Mobile-first approach with Tailwind
+5. **Accessibility**: Use Radix UI components for WCAG compliance
+6. **Performance**: Lazy loading for images and code splitting
+7. **Security**: JWT authentication and CSRF protection
+8. **SEO**: Server-side rendering considerations for React pages

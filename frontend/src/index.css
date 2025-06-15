@@ -1,6 +1,73 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  /* Core Theme Variables */
+  --radius: 0.5rem;
+  --color-background: #ffffff;
+  --color-foreground: #002766; /* Using primary-900 for high contrast text */
+  --color-card: #ffffff;
+  --color-card-foreground: #002766;
+  --color-popover: #ffffff;
+  --color-popover-foreground: #002766;
+  --color-primary: #1890ff; /* Mapped to primary-500 */
+  --color-primary-foreground: #ffffff;
+  --color-secondary: #fa8c16; /* Mapped to secondary-500 */
+  --color-secondary-foreground: #ffffff;
+  --color-muted: #f1f5f9;
+  --color-muted-foreground: #64748b;
+  --color-accent: #52c41a; /* Mapped to accent-500 */
+  --color-accent-foreground: #ffffff;
+  --color-destructive: #ef4444;
+  --color-border: #e2e8f0;
+  --color-input: #e2e8f0;
+  --color-ring: #40a9ff; /* Mapped to primary-400 */
+
+  /* Brand Palette */
+  --font-family-sans: "Inter", "sans-serif";
+  --font-family-serif: "Playfair Display", "serif";
+  --font-family-arabic: "Amiri", "serif";
+
+  --color-primary-50: #e6f7ff;
+  --color-primary-100: #bae7ff;
+  --color-primary-200: #91d5ff;
+  --color-primary-300: #69c0ff;
+  --color-primary-400: #40a9ff;
+  --color-primary-500: #1890ff;
+  --color-primary-600: #096dd9;
+  --color-primary-700: #0050b3;
+  --color-primary-800: #003a8c;
+  --color-primary-900: #002766;
+
+  --color-secondary-50: #fff7e6;
+  --color-secondary-100: #ffe7ba;
+  --color-secondary-200: #ffd591;
+  --color-secondary-300: #ffc069;
+  --color-secondary-400: #ffad40;
+  --color-secondary-500: #fa8c16;
+  --color-secondary-600: #d46b08;
+  --color-secondary-700: #ad4e00;
+  --color-secondary-800: #873800;
+  --color-secondary-900: #612500;
+
+  --color-accent-50: #f6ffed;
+  --color-accent-100: #d9f7be;
+  --color-accent-200: #b7eb8f;
+  --color-accent-300: #95de64;
+  --color-accent-400: #73d13d;
+  --color-accent-500: #52c41a;
+  --color-accent-600: #389e0d;
+  --color-accent-700: #237804;
+  --color-accent-800: #135200;
+  --color-accent-900: #092b00;
+  
+  --color-moroccan-gold: #D4AF37;
+  --color-moroccan-emerald: #50C878;
+  --color-moroccan-terracotta: #E2725B;
+
+  --animation-fade-in: fadeIn 0.5s ease-in-out;
+  --animation-slide-up: slideUp 0.5s ease-out;
+  --animation-pulse-slow: pulse 3s infinite;
+}
 
 @layer base {
   * {
@@ -8,7 +75,7 @@
   }
   
   body {
-    @apply bg-background text-foreground font-body;
+    @apply bg-background text-foreground font-sans;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
   
@@ -43,8 +110,8 @@
   }
   
   .moroccan-pattern {
-    background-image: radial-gradient(circle at 1px 1px, rgba(212,175,55,0.15) 1px, transparent 0);
-    background-size: 20px 20px;
+    background-image: url('@/assets/moroccan-pattern.png');
+    background-repeat: repeat;
   }
 }
 
